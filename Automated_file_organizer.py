@@ -6,7 +6,7 @@ import shutil
 '''define the source directory (where files are located) 
 and the target directory for each filetype'''
 
-source_dir = '/home/muhammad-iftikhar/Downloads' #path to download folder
+source_dir = '/path/to/download/files' #path to download folder
 
 #mapping file types to destination folders
 file_extension = {
