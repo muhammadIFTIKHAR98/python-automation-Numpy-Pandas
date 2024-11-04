@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 url = ''
 
 #make a request to the website 
-response = response.get(url)
+response = requests.get(url)
 
 #check if the request was successful
 if response.status_code == 200:
