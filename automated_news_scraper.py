@@ -25,10 +25,9 @@ else:
     print("failed to retrieve the webpage")
 
 #file path to store the headlines
-file_path = 'file/path/to/save/the/file'
+file_path = 'file/path/to/store/the/headlines/filetype/will/be/.txt/file'
 
 #open the file in append mode and write the headlines
 with open(file_path, 'a') as file:
-    file.write("latest news headlines:\n")
-    file.write("\n".join(news_headlines))
-    file.write("\n\n")
+    file.write("latest news headlines (updated on {datetime.now()}):\n")
+    
