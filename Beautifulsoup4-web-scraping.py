@@ -28,3 +28,10 @@ def find_jobs():
                 print(f"more_info: {more_info}")
                 print("\n")
 
+if __name__ == '__main__':
+    while True:
+        find_jobs()
+        time_wait = 10
+        print(f'waiting {time_wait} minutes....')
+        time.sleep(time_wait * 60)
+        
