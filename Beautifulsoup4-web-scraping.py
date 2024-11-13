@@ -14,8 +14,20 @@ def find_jobs():
     
     soup = BeautifulSoup(html_text, 'lxml')
     jobs = soup.find_all('li', class_ = 'clearfix job-bx wht-shd-bx')
+    
+    #to create a csv file for saving the output in the file and updating the file everytime it run we need to make a file in directory then link it to the code and write a code so that the output will be saved in the file
+    with open('file-name.csv',  mode='a', newline='', enoding= 'utf-8') as file:
+        write = csv.writer(file)
+
+        #write the header only once
+        if file.tell() == 0:
+            writer.writerow(['company name', 'skills required', 'more info'])
+
+    
     for job in jobs:
         publish_date = job.find('span', class_ = 'sim-posted').span.text
+        
+        
         if "few" in publish_date: 
             company_name = job.find('h3', class_ = 'joblist-comp-name').text.strip()
             skill = job.find('div', class_ = 'srp-skills').text.strip()
