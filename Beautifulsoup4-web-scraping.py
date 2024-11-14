@@ -8,6 +8,8 @@ print('put some skills that you are not familiar with')
 unfamiliar_skill = input('>')
 print(f'filtering out {unfamiliar_skill}')
 
+
+#here we have defined a function as find_jobs this function can be called directly with the code at any point. 
 def find_jobs():
     html_text = requests.get('https://www.timesjobs.com/candidate/job-search.html?searchType=personalizedSearch&from=submit&searchTextSrc=&searchTextText=&txtKeywords=python&txtLocation=').text
     #print(html_text)
@@ -39,7 +41,7 @@ def find_jobs():
                 print(f"skills required: {skill_single_line}")
                 print(f"more_info: {more_info}")
                 print("\n")
-
+#this is used in many places
 if __name__ == '__main__':
     while True:
         find_jobs()
