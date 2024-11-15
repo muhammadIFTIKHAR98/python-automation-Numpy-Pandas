@@ -29,20 +29,19 @@ def find_jobs():
     for job in jobs:
         publish_date = job.find('span', class_ = 'sim-posted').span.text
         
-        
         if "few" in publish_date: 
             company_name = job.find('h3', class_ = 'joblist-comp-name').text.strip()
             skill = job.find('div', class_ = 'srp-skills').text.strip()
             skill_list = [s.strip() for s in skill.split('\n') if s.strip()]
             skill_single_line = ','.join(skill_list)
-            more_info = job.header.a['href']
+            more_info = job.header.a['href']  #this code line is will provide the link for the job post, weget the link from the inspect insdie the header and within "href". 
             if unfamiliar_skill not in skill:    
                 print(f"company name: {company_name}")
                 print(f"skills required: {skill_single_line}")
                 print(f"more_info: {more_info}")
                 print("\n")
 #this is used in many places
-if __name__ == '__main__':
+if __name__ == '__main__': #this will help the code only run when it is run separately not while called in other codes.
     while True:
         find_jobs()
         time_wait = 10
