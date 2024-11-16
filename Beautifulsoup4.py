@@ -1,4 +1,7 @@
 #this is the file in which i am learning the beautifulsoup4, its function and how to do web scraping
+#to view the complete documentation of Beautifulsoup4 just search beautifulsoup4 documentaion and open crummy website.
+#Bs4 is a python library for pulling data out of HTML and XML files.
+
 from bs4 import BeautifulSoup
 import requests
 
@@ -7,7 +10,7 @@ result = requests.get(url)
 #print(result.text)
 
 doc = BeautifulSoup(result.text, "html.parser")
-print(doc.prettify())
+print(doc.prettify()) #this will 
 
 
 # prices = doc.find_all(text="$")
@@ -18,8 +21,6 @@ print(doc.prettify())
 # parents = prices[0].parent
 # print(parents)
 
-# print(prices)
-# this is showing an error in my code but works fine in tutorial
 
 # prices = doc.find_all(string="$")
 # print(prices)
@@ -29,9 +30,9 @@ print(doc.prettify())
 # prices = doc.find_all("ul", class_="price") 
 # print(prices)
 
-# #check if the price element was found and print the price
-# if prices:
-#     print("price found:", prices.get_text(strong=True))
+#check if the price element was found and print the price
+if prices:
+    print("price found:", prices.get_text(strong=True))
 
-# else:
-#     print("price not found.")
+else:
+    print("price not found.")
