@@ -6,19 +6,20 @@ import shutil
 '''define the source directory (where files are located) 
 and the target directory for each filetype'''
 
-source_dir = '/path/to/download/files' #path to download folder
+source_dir = '/path/to/files/which/are/downloaded' #path to download folder
 
 #mapping file types to destination folders
 file_extension = {
     "images": ['.jpg', '.png', '.jpeg', '.gif', '.bmp'],
-    "documents": ['.pdf', '.docx', '.txt', 'xlsx'],
-    "videos": ['.mp4', '.avi', '.mov', 'mkv'],
-    "music": ['.mp3', '.wav', 'flac'],
+    "documents": ['.pdf', '.docx', '.txt', '.xlsx'],
+    "videos": ['.mp4', '.avi', '.mov', '.mkv'],
+    "music": ['.mp3', '.wav', '.flac'],
 }
 
+source_folder = os.listdir(source_dir)
 #function to organize files
 def organize_files():
-    for filename in os.listdir(source_dir):
+    for filename in source_folder:
         # get file extension and full path
         file_path = os.path.join(source_dir, filename)
         if os.path.isfile(file_path):
