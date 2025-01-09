@@ -40,7 +40,7 @@ def organize_files():
             folder_name = "others"            # This is where all files go if their extension does not match with provided extensions in file_extension.
             for folder, extension in file_extension.items():      # Loop through each category in the file_extension dictonary
                 if file_ext in extension:                         
-                    folder_name = folder
+                    folder_name = folder      # This will give folder_name the name provided in the file_extension dictonary, to be precise key of dictonary.
                     break                     # Stops the loop when match is found. this make code efficient because it doesn't keep searching unnecessarily.
 
             #debug: show where the file is going
@@ -48,8 +48,8 @@ def organize_files():
 
             #create the folder if it doesn't exist
             target_folder = os.path.join(source_dir, folder_name)
-            if not os.path.exists(target_folder):
-                os.makedirs(target_folder)
+            if not os.path.exists(target_folder):                  # This condition will be fullfilled when the code runs first time with unique extension after that it will exist
+                os.makedirs(target_folder)                         # This will create the target_folder if it doesn't exist, which will happen only when code is run first time or extension is unique.
 
             #move the file to the appropriate folder
             shutil.move(file_path, target_folder)
