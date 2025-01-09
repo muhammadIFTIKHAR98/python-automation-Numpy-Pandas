@@ -30,16 +30,18 @@ def organize_files():
     for filename in source_folder:            # This will loop/iterate through each file present in source_folder
         # get file extension and full path
         file_path = os.path.join(source_dir, filename)    # By joining the sorce_dir and filename we will get the full file path.
-        if os.path.isfile(file_path):
-            file_ext = os.path.splitext(filename)[1].lower() #file extension
+
+      
+        if os.path.isfile(file_path):         # This ensures that item is a file and not a folder.
+            file_ext = os.path.splitext(filename)[1].lower()   # This will split the filename into two parts "file" and ".jpg", then we will select the second part(index [1]) and keep it in lower state. 
             print(f"processing file: {filename}, extension: {file_ext}") #debug output
 
             #find the appropriate folder based on file extension
-            folder_name = "others"
-            for folder, extension in file_extension.items():
-                if file_ext in extension:
+            folder_name = "others"            # This is where all files go if their extension does not match with provided extensions in file_extension.
+            for folder, extension in file_extension.items():      # Loop through each category in the file_extension dictonary
+                if file_ext in extension:                         
                     folder_name = folder
-                    break
+                    break                     # Stops the loop when match is found. this make code efficient because it doesn't keep searching unnecessarily.
 
             #debug: show where the file is going
             print(f"moving {filename} to folder: {folder_name}") #debug output    
