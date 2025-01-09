@@ -1,27 +1,35 @@
 
 #!/usr/bin/env python3
-import os
-import shutil
+import os     #a standard library that allows interaction with the operating system. It provides functions for file operations, directory management, and other OS-related tasks. 
+              #You can use it to perform actions like creating, deleting, and renaming directories, accessing file paths, and running shell commands. 
+
+import shutil   #Shutil module in Python provides many functions of high-level operations on files and collections of files. It comes under Python’s standard utility modules.
+                #This module helps in automating the process of copying and removing files and directories.
 
 '''define the source directory (where files are located) 
 and the target directory for each filetype'''
 
 source_dir = '/path/to/files/which/are/downloaded' #path to download folder
 
-#mapping file types to destination folders
+#mapping file types to destination folders. Defining File Extensions for Categorization.
 file_extension = {
     "images": ['.jpg', '.png', '.jpeg', '.gif', '.bmp'],
     "documents": ['.pdf', '.docx', '.txt', '.xlsx'],
     "videos": ['.mp4', '.avi', '.mov', '.mkv'],
     "music": ['.mp3', '.wav', '.flac'],
 }
-
-source_folder = os.listdir(source_dir)
-#function to organize files
+'''
+Defining the function to organize files
+This is the main function that organizes files. It:
+        Iterates through the files in the source folder.
+        Checks their extensions.
+        Moves them to the appropriate subfolder.
+'''
 def organize_files():
-    for filename in source_folder:
+    source_folder = os.listdir(source_dir)    # This will lists all the files and directories present in the source_dir.
+    for filename in source_folder:            # This will loop/iterate through each file present in source_folder
         # get file extension and full path
-        file_path = os.path.join(source_dir, filename)
+        file_path = os.path.join(source_dir, filename)    # By joining the sorce_dir and filename we will get the full file path.
         if os.path.isfile(file_path):
             file_ext = os.path.splitext(filename)[1].lower() #file extension
             print(f"processing file: {filename}, extension: {file_ext}") #debug output
