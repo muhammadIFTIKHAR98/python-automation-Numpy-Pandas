@@ -412,3 +412,12 @@ ax.plot_surface(X, Y, Z, rstride=1, cstride=1, cmap='viridis')
 plt.show()
 '''
 
+#24 NUMPY for Data Science (course on edu.machinelearningplus)
+       1 creating arrays
+       2 data manipulation 1
+       3 data manipulation 2
+       4 useful functions
+       5 broadcasting and ufunc
+       6 mathmatical operation
+       7 summary
+
